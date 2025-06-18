@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 public class Coletavel : MonoBehaviour
 {
@@ -16,5 +18,18 @@ public class Coletavel : MonoBehaviour
     void Update()
     {
         //Debug.Log("Rodando!");
+    }
+
+    public TMP_Text texto_pontos;
+    public ParticleSystem efeito;
+    private void OnTriggerEnter2D(Collider2D outro)
+    {
+        if (outro.CompareTag("Player"))
+        {
+            pontos++;
+            texto_pontos.text = "Pontos: " + pontos.ToString();
+            outro.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            Instantiate(efeito, transform.position, Quaternion.identity);
+        }
     }
 }
