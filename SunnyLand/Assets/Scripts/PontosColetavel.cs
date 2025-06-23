@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class Coletavel : MonoBehaviour
+public class PontosColetavel : MonoBehaviour
 {
-
+    public int pontos = 0;
+    private bool foiColetado = false;
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("O jogo começou! com " + pontos + " pontos");
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Rodando!");
+        
     }
+    public TMP_Text texto_pontos;
     public ParticleSystem efeito;
     private void OnTriggerEnter2D(Collider2D outro)
     {
@@ -30,9 +31,9 @@ public class Coletavel : MonoBehaviour
         }
         if (outro.CompareTag("Player"))
         {
-            outro.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            pontos = pontos + 1;
+            texto_pontos.text = pontos.ToString();
             Instantiate(efeito, transform.position, Quaternion.identity);
             Destroy(efeito);
         }
     }
-}
