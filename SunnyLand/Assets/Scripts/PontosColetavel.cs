@@ -20,7 +20,7 @@ public class PontosColetavel : MonoBehaviour
 
     }
     public TMP_Text texto_pontos;
-    public ParticleSystem efeito;
+    public ParticleSystem efeito3;
     private void OnTriggerEnter2D(Collider2D outro)
     {
         if (foiColetado) return;
@@ -34,8 +34,8 @@ public class PontosColetavel : MonoBehaviour
         {
             pontos = pontos + 1;
             texto_pontos.text = pontos.ToString();
-            Instantiate(efeito, transform.position, Quaternion.identity);
-            Destroy(efeito);
+            Instantiate(efeito3, transform.position, Quaternion.identity);
+            Destroy(efeito3);
         }
     }
 }

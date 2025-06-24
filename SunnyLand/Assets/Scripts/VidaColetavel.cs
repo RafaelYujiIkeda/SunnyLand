@@ -20,7 +20,7 @@ public class VidaColetavel : MonoBehaviour
 
     }
     public TMP_Text texto_vidas;
-    public ParticleSystem efeito;
+    public ParticleSystem efeito2;
     private void OnTriggerEnter2D(Collider2D outraVida)
     {
         if (foiColetado) return;
@@ -34,8 +34,8 @@ public class VidaColetavel : MonoBehaviour
         {
             vida = vida + 1;
             texto_vidas.text = vida.ToString();
-            Instantiate(efeito, transform.position, Quaternion.identity);
-            Destroy(efeito);
+            Instantiate(efeito2, transform.position, Quaternion.identity);
+            Destroy(efeito2);
         }
     }
 }
