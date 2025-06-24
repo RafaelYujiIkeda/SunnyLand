@@ -6,7 +6,7 @@ using TMPro;
 
 public class Coletavel : MonoBehaviour
 {
-
+    private bool foiColetado = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,18 +19,18 @@ public class Coletavel : MonoBehaviour
         //Debug.Log("Rodando!");
     }
     public ParticleSystem efeito;
-    private void OnTriggerEnter2D(Collider2D outro)
+    private void OnTriggerEnter2D(Collider2D outroObjeto)
     {
         if (foiColetado) return;
-        if (outro.CompareTag("Player"))
+        if (outroObjeto.CompareTag("Player"))
         {
             foiColetado = true; // Marca como coletado
 
             // restante do código
         }
-        if (outro.CompareTag("Player"))
+        if (outroObjeto.CompareTag("Player"))
         {
-            outro.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            outroObjeto.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             Instantiate(efeito, transform.position, Quaternion.identity);
             Destroy(efeito);
         }

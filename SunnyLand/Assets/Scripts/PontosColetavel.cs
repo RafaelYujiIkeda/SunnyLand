@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 public class PontosColetavel : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PontosColetavel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public TMP_Text texto_pontos;
     public ParticleSystem efeito;
@@ -37,3 +38,6 @@ public class PontosColetavel : MonoBehaviour
             Destroy(efeito);
         }
     }
+}
+
+    
