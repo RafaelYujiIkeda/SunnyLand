@@ -5911,6 +5911,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4600242171368336603, guid: aa0f1ecf18f485745b29fbce413dfe06,
         type: 3}
+      propertyPath: efeito
+      value: 
+      objectReference: {fileID: 5112403345868107899, guid: 6f34ef0d986e9db4199cf75805f79753,
+        type: 3}
+    - target: {fileID: 4600242171368336603, guid: aa0f1ecf18f485745b29fbce413dfe06,
+        type: 3}
       propertyPath: texto_pontos
       value: 
       objectReference: {fileID: 125255259}
@@ -5982,6 +5988,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2370456955998221691, guid: 752c72bbf169f504e8812fd239809f79,
+        type: 3}
+      propertyPath: efeito
+      value: 
+      objectReference: {fileID: 1978689737715041618, guid: afa54037ffe627545886e2741abb365d,
+        type: 3}
     - target: {fileID: 2370456955998221691, guid: 752c72bbf169f504e8812fd239809f79,
         type: 3}
       propertyPath: texto_vidas
@@ -6115,6 +6127,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: aaccbab31dd87f8
       objectReference: {fileID: 0}
+    - target: {fileID: 9043420643441391664, guid: 04b9b731473a6704b98cd64b4b6fd6f5,
+        type: 3}
+      propertyPath: efeito
+      value: 
+      objectReference: {fileID: 2504214343621411456, guid: 3ed0d324122d7b24eaec75c55c74aafc,
+        type: 3}
     - target: {fileID: 9043420643441391664, guid: 04b9b731473a6704b98cd64b4b6fd6f5,
         type: 3}
       propertyPath: ControlsGameManager
