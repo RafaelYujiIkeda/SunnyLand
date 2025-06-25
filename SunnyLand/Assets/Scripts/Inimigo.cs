@@ -6,8 +6,9 @@ using TMPro;
 
 public class Inimigo : MonoBehaviour
 {
-    public int vida = 5;
-    private bool foiColetadoR = false;
+    private bool foiColetado = false;
+    public ParticleSystem efeito;
+    public ControlsGameManager ControlsGameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,24 +20,19 @@ public class Inimigo : MonoBehaviour
     {
 
     }
-    public TMP_Text texto_vidas;
-    public ParticleSystem efeito1;
-    private int vidaR = 5;
-    private void OnTriggerEnter2D(Collider2D outraVidaR)
+    private void OnTriggerEnter2D(Collider2D outroObjeto)
     {
-        if (foiColetadoR) return;
-        if (outraVidaR.CompareTag("Player"))
+        if (foiColetado) return;
+        if (outroObjeto.CompareTag("Player"))
         {
-            foiColetadoR = true; // Marca como coletado
+            foiColetado = true; // Marca como coletado
 
-            // restante do código
+            if (outroObjeto.CompareTag("Player"))
+            {
+                ControlsGameManager.RemoveLife();
+            }
         }
-        if (outraVidaR.CompareTag("Player"))
-        {
-            vidaR = vida - 1;
-            texto_vidas.text = vidaR.ToString();
-            Instantiate(efeito1, transform.position, Quaternion.identity);
-            Destroy(efeito1);
-        }
+        Instantiate(efeito, transform.position, Quaternion.identity);
+
     }
 }

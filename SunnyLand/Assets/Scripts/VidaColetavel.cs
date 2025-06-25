@@ -6,12 +6,13 @@ using TMPro;
 
 public class VidaColetavel : MonoBehaviour
 {
-    public int vida = 5;
+    public ParticleSystem efeito;
     private bool foiColetado = false;
+    public ControlsGameManager ControlsGameManager;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("O jogo começou! com " + vida + " vidas");
+        Debug.Log("O jogo começou! com " + ControlsGameManager.lives + " vidas");
     }
 
     // Update is called once per frame
@@ -19,23 +20,20 @@ public class VidaColetavel : MonoBehaviour
     {
 
     }
-    public TMP_Text texto_vidas;
-    public ParticleSystem efeito2;
-    private void OnTriggerEnter2D(Collider2D outraVida)
+
+    private void OnTriggerEnter2D(Collider2D outroObjeto)
     {
         if (foiColetado) return;
-        if (outraVida.CompareTag("Player"))
+        if (outroObjeto.CompareTag("Player"))
         {
             foiColetado = true; // Marca como coletado
 
-            // restante do código
+            if (outroObjeto.CompareTag("Player"))
+            {
+                ControlsGameManager.Heal();
+            }
         }
-        if (outraVida.CompareTag("Player"))
-        {
-            vida = vida + 1;
-            texto_vidas.text = vida.ToString();
-            Instantiate(efeito2, transform.position, Quaternion.identity);
-            Destroy(efeito2);
-        }
+        Instantiate(efeito, transform.position, Quaternion.identity);
+
     }
 }

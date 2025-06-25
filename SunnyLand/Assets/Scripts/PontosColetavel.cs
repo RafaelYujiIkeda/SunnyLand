@@ -6,12 +6,13 @@ using TMPro;
 
 public class PontosColetavel : MonoBehaviour
 {
-    public int pontos = 0;
+    public ParticleSystem efeito;
     private bool foiColetado = false;
+    public ControlsGameManager ControlsGameManager;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("O jogo começou! com " + pontos + " pontos");
+        Debug.Log("O jogo começou! com " + ControlsGameManager.score + " pontos");
     }
 
     // Update is called once per frame
@@ -19,24 +20,21 @@ public class PontosColetavel : MonoBehaviour
     {
 
     }
-    public TMP_Text texto_pontos;
-    public ParticleSystem efeito3;
-    private void OnTriggerEnter2D(Collider2D outro)
+    private void OnTriggerEnter2D(Collider2D outroObjeto)
     {
         if (foiColetado) return;
-        if (outro.CompareTag("Player"))
+        if (outroObjeto.CompareTag("Player"))
         {
             foiColetado = true; // Marca como coletado
 
             // restante do código
         }
-        if (outro.CompareTag("Player"))
+        if (outroObjeto.CompareTag("Player"))
         {
-            pontos = pontos + 1;
-            texto_pontos.text = pontos.ToString();
-            Instantiate(efeito3, transform.position, Quaternion.identity);
-            Destroy(efeito3);
+            ControlsGameManager.AddPoints();
         }
+        Instantiate(efeito, transform.position, Quaternion.identity);
+
     }
 }
 
